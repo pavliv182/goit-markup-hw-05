@@ -173,16 +173,15 @@ img {
 }
 .nav-item {
   margin-right: 50px;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 .nav-item:last-child {
   margin: 0;
 }
 
 .nav-link {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
 
   font-weight: 500;
   font-size: 14px;
@@ -203,7 +202,7 @@ img {
 .current-link::after {
   display: block;
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   content: '';
   width: 100%;
@@ -695,6 +694,8 @@ img {
   visibility: visible;
   pointer-events: initial;
   transition: opacity var(--cubic), visibility var(--cubic);
+
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .backdrop.is-hidden {
   opacity: 0;
