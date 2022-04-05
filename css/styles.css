@@ -608,8 +608,18 @@ img {
   background: var(--card-background-color);
   border: 1px solid #eeeeee;
   box-sizing: border-box;
+}
+
+.portfolio-link {
+  display: block;
   transition: box-shadow var(--cubic);
 }
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .portfolio-overlay {
   position: relative;
   overflow: hidden;
@@ -624,20 +634,13 @@ img {
   transform: translateY(100%);
   opacity: 0;
 
-  transition: transform var(--cubic);
+  transition: transform var(--cubic), opacity var(--cubic), background-color var(--cubic);
 }
-.portfolio-item:hover .portfolio-overlay::before {
+.portfolio-link:hover .portfolio-overlay::before,
+.portfolio-link:focus .portfolio-overlay::before {
   transform: translateY(0);
   opacity: 1;
   background-color: rgba(33, 150, 243, 0.9);
-}
-.portfolio-link {
-  display: block;
-}
-.portfolio-item:hover,
-.portfolio-item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .portfolio-overlay-text {
   position: absolute;
@@ -655,12 +658,12 @@ img {
   color: var(--black-title-font-color);
 
   transform: translateY(100%);
+  transition: transform var(--cubic), opacity var(--cubic);
 }
-.portfolio-item:hover .portfolio-overlay-text,
-.portfolio-item:focus .portfolio-overlay-text {
-  opacity: 1;
+.portfolio-link:hover .portfolio-overlay-text,
+.portfolio-link:focus .portfolio-overlay-text {
   transform: translateY(0);
-  transition: transform var(--cubic);
+  opacity: 1;
 }
 .portfolio-text-conteiner {
   padding: 20px 24px;
@@ -681,6 +684,7 @@ img {
 }
 
 /* МОДАЛЬНОЕ ОКНО */
+
 .backdrop {
   width: 100vw;
   height: 100vh;
